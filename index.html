@@ -83,8 +83,8 @@
             <div className="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
 
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#8b1e0f] to-[#d94e16] text-white flex items-center justify-center font-serif-title text-2xl font-bold border border-amber-400/40 shadow-sm">
-                  ॐ
+                <div className="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center border border-amber-400/40 shadow-sm">
+                  <img src="public/images/logo.png" alt="Mahavir Mandir Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h1 className="font-serif-title text-xl font-bold text-[#2a1e17] leading-snug">Mahavir Mandir, Patna</h1>
@@ -109,9 +109,12 @@
           </header>
 
           {/* Hero Banner */}
-          <section className="relative py-14 lg:py-24 px-4 bg-gradient-to-br from-[#5c1208] via-[#75190b] to-[#3d0903] text-white border-b-4 border-[#d4af37]">
-            {/* TODO: replace with real temple photo (mahavirmandirpatna.org official banner graphic) */}
-            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <section className="relative py-14 lg:py-24 px-4 bg-gradient-to-br from-[#5c1208] via-[#75190b] to-[#3d0903] text-white border-b-4 border-[#d4af37] overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none"
+              style={{ backgroundImage: "url('public/images/Mahavir%20Mandir.png')" }}
+            ></div>
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
                 <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block">
                   Shree Mahavir Sthan Nayas Samiti
@@ -129,7 +132,6 @@
                 <div className="bg-black/30 p-4 rounded-xl border border-amber-400/20 max-w-lg text-xs sm:text-sm flex flex-col sm:flex-row justify-between items-center gap-2">
                   <span className="font-bold text-amber-200">Daily Schedule: Opens 5:00 AM</span>
                   <span>Morning Aarti: <strong className="text-amber-300">5:00 PM</strong></span>
-                  {/* VERIFY: exact morning vs evening aarti timings against live site before final launch */}
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start">
@@ -142,27 +144,48 @@
                 </div>
               </div>
 
-              {/* Architectural Sanctum Sanctorum Frame */}
+              {/* Architectural Sanctum Sanctorum Frame with Mahavir Mandir Photo & Logo */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="relative bg-[#420d06] p-6 rounded-xl border-2 border-[#d4af37]/60 shadow-2xl text-center space-y-3 max-w-sm w-full">
-                  <div className="absolute top-2 left-2 text-[#d4af37] text-xs font-serif">🪷</div>
-                  <div className="absolute top-2 right-2 text-[#d4af37] text-xs font-serif">🪷</div>
-
-                  {/* TODO: replace with real temple photo */}
-                  <div className="w-20 h-20 rounded-full border-2 border-[#d4af37] bg-gradient-to-b from-[#75190b] to-[#3d0903] text-amber-300 flex items-center justify-center font-serif-title text-4xl font-bold mx-auto">
-                    ॐ
+                <div className="relative bg-[#420d06] rounded-2xl border-2 border-[#d4af37]/60 shadow-2xl overflow-hidden max-w-sm w-full">
+                  
+                  {/* Temple Image */}
+                  <div className="relative h-60 w-full overflow-hidden bg-black/40">
+                    <img 
+                      src="public/images/Mahavir%20Mandir.png" 
+                      alt="Mahavir Mandir Patna" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#420d06] via-transparent to-black/20"></div>
+                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full border border-amber-400/40">
+                      📍 Patna Junction, Bihar
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="font-serif-title text-xl font-bold text-amber-200">Sanctum Sanctorum</h3>
-                    <p className="text-xs text-amber-300 font-serif">श्री महावीर हनुमान मंदिर</p>
+                  {/* Content Container */}
+                  <div className="p-6 text-center space-y-3 relative bg-[#420d06]">
+                    {/* Logo replacing ॐ */}
+                    <div className="-mt-14 relative z-10 inline-block">
+                      <div className="w-20 h-20 rounded-full border-4 border-[#d4af37] bg-white p-2 shadow-xl mx-auto flex items-center justify-center">
+                        <img 
+                          src="public/images/logo.png" 
+                          alt="Mahavir Mandir Logo" 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-serif-title text-xl font-bold text-amber-200">Sanctum Sanctorum</h3>
+                      <p className="text-xs text-amber-300 font-serif">श्री महावीर हनुमान मंदिर</p>
+                    </div>
+
+                    <p className="border-t border-b border-[#d4af37]/30 py-3 text-xs text-amber-100/90 leading-relaxed">
+                      Renovated Nov 30, 1984 – Mar 4, 1985 covering 10,000 sq ft. Housing the main sanctum of Lord Hanuman and Lord Shiva corridor.
+                    </p>
+
+                    <div className="text-[11px] font-bold text-amber-300 uppercase tracking-widest">Patna Junction Complex • Bihar</div>
                   </div>
 
-                  <p className="border-t border-b border-[#d4af37]/30 py-3 text-xs text-amber-100/90 leading-relaxed">
-                    Renovated Nov 30, 1984 – Mar 4, 1985 covering 10,000 sq ft. Housing the main sanctum of Lord Hanuman and Lord Shiva corridor.
-                  </p>
-
-                  <div className="text-[11px] font-bold text-amber-300 uppercase tracking-widest">Patna Junction Complex • Bihar</div>
                 </div>
               </div>
             </div>

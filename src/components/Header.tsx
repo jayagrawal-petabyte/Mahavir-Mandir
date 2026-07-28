@@ -40,8 +40,12 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
         
         {/* Emblem & Name */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#8b1e0f] to-[#d94e16] text-white flex items-center justify-center font-serif text-2xl font-bold shadow-sm group-hover:scale-105 transition-transform border border-amber-400/40">
-            ॐ
+          <div className="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-amber-400/40">
+            <img 
+              src="/images/logo.png" 
+              alt="Mahavir Mandir Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <h1 className="font-serif-title text-lg sm:text-xl font-bold tracking-tight text-[#2a1e17] group-hover:text-[#8b1e0f] transition-colors leading-snug">
