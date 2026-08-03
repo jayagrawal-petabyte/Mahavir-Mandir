@@ -40,10 +40,7 @@ export default function LiveDarshanModal({ isOpen, onClose }: LiveDarshanModalPr
         {/* Header */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
           <div className="flex items-center gap-3">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
+            <span className="inline-flex rounded-full h-2.5 w-2.5 bg-red-500 shrink-0"></span>
             <div>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-amber-200">
                 24x7 HD Live Darshan • Mahavir Mandir Patna

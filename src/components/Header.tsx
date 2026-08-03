@@ -1,15 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Radio, Menu, X, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
   onOpenDonate: () => void;
   onOpenLive: () => void;
+  onOpenDisclaimer: () => void;
 }
 
-export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
+export default function Header({
+  onOpenDonate,
+  onOpenLive,
+  onOpenDisclaimer,
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [isFirstVisit, setIsFirstVisit] = useState<boolean>(() => {
@@ -126,39 +131,31 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
         suppressHydrationWarning
         className="sticky top-0 z-40 bg-[#faf7f2]/95 backdrop-blur-md border-b border-amber-900/10 shadow-sm"
       >
-        {/* Top Info Bar */}
+        {/* Top Disclaimer Notice Bar */}
         <motion.div
           initial={isFirstVisit ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
           animate={stage === "centered" ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-[#8b1e0f] text-white py-2.5 px-6 sm:px-8 w-full min-h-fit"
+          className="bg-[#8b1e0f] text-amber-100 py-1.5 px-4 sm:px-6 w-full min-h-fit overflow-hidden"
         >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-6 text-xs leading-normal">
-            <div className="flex items-center gap-2.5 font-medium text-white">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
-              <span className="whitespace-normal text-center sm:text-left">
-                Daily Schedule: Opens 5:00 AM | Morning Aarti 5:00 PM
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 text-[12px] leading-snug">
+            <div className="flex items-center gap-1.5 overflow-hidden truncate">
+              <span className="text-amber-300 font-bold shrink-0">⚠ Notice:</span>
+              <span className="truncate font-medium text-amber-100/95">
+                Beware of fake sites/pages collecting donations in our name. Official sites: mahavirmandirpatna.org · mahavirmandir.org · viraatramayanmandir.net/.org
               </span>
             </div>
-            <div className="flex items-center gap-3 text-[11px] sm:text-xs text-amber-200 font-medium">
-              <span className="flex items-center gap-1.5 shrink-0">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                Patna Junction, Bihar
-              </span>
-              <span className="text-amber-400/60">•</span>
-              <button
-                onClick={onOpenDonate}
-                className="hover:underline font-bold text-white transition-colors text-center sm:text-left"
-              >
-                Shree Mahavir Sthan Nayas Samiti Trust
-              </button>
-            </div>
+            <button
+              onClick={onOpenDisclaimer}
+              className="shrink-0 font-bold text-amber-300 hover:text-white underline ml-2 transition-colors cursor-pointer text-[12px]"
+            >
+              Read More
+            </button>
           </div>
         </motion.div>
 
         {/* Main Nav Bar */}
         <div className="max-w-7xl mx-auto px-6 sm:px-8 py-3.5 flex items-center justify-between gap-6">
-          
           {/* Emblem & Name */}
           <div className="min-h-[44px] flex items-center shrink-0">
             {stage !== "centered" ? (
@@ -219,22 +216,6 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
             </motion.a>
           </motion.nav>
 
-          {/* Live Stream Button */}
-          <motion.div
-            initial={isFirstVisit ? { opacity: 0, scale: 0.95 } : { opacity: 1, scale: 1 }}
-            animate={stage === "centered" ? { opacity: 0, scale: 0.95 } : { opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.35 }}
-            className="hidden sm:flex items-center gap-3 shrink-0"
-          >
-            <button
-              onClick={onOpenLive}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-red-200 text-[#8b1e0f] font-bold text-xs shadow-sm hover:bg-red-50 transition-colors"
-            >
-              <Radio className="w-4 h-4 text-red-600 animate-pulse" />
-              <span>Live Darshan</span>
-            </button>
-          </motion.div>
-
           {/* Mobile Menu Button */}
           <motion.button
             initial={isFirstVisit ? { opacity: 0 } : { opacity: 1 }}
@@ -269,15 +250,24 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
               Contact Us
             </a>
 
-            <div className="pt-2 border-t border-amber-900/10">
+            <div className="pt-2 border-t border-amber-900/10 space-y-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenLive();
                 }}
-                className="w-full py-2.5 rounded-lg bg-red-600 text-white font-bold text-xs"
+                className="w-full py-2.5 rounded-lg bg-[#8b1e0f] text-white font-bold text-xs"
               >
                 Watch Live Darshan Stream
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenDonate();
+                }}
+                className="w-full py-2.5 rounded-lg bg-amber-500 text-gray-950 font-bold text-xs"
+              >
+                Online Donation / Offering
               </button>
             </div>
           </div>
@@ -286,5 +276,6 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
     </>
   );
 }
+
 
 
