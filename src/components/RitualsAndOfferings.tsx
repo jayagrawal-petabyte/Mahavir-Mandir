@@ -26,9 +26,8 @@ export default function RitualsAndOfferings() {
         {categories.map((cat, idx) => (
           <div key={idx} className="pt-4 md:pt-0 px-2 space-y-3 text-center">
             
-            {/* Praying Hands Icon Container */}
-            <div className="w-16 h-16 rounded-full border-2 border-red-200 bg-red-50 mx-auto flex items-center justify-center text-red-600 text-2xl shadow-sm">
-              🙏
+            <div className="w-12 h-12 rounded-full border border-amber-300 bg-amber-50 mx-auto flex items-center justify-center text-[#8b1e0f] text-xs font-serif font-bold shadow-sm">
+              0{idx + 1}
             </div>
 
             <h3 className="text-base font-bold text-blue-600 hover:underline cursor-pointer min-h-[48px] flex items-center justify-center">

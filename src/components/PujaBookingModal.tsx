@@ -56,7 +56,7 @@ export default function PujaBookingModal({ isOpen, onClose }: PujaBookingModalPr
               <CheckCircle2 className="w-10 h-10 animate-bounce" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-espresso-900">
-              Puja Booking Confirmed! 🙏
+              Puja Booking Confirmed!
             </h3>
             <p className="text-sm text-espresso-800/80">
               Thank you, <strong className="text-saffron-800">{devoteeName || "Devotee"}</strong>. Your <strong className="text-saffron-800">{selectedPuja.name}</strong> has been scheduled for <strong className="text-saffron-800">{pujaDate}</strong>.

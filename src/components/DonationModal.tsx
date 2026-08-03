@@ -66,7 +66,7 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
               <CheckCircle2 className="w-10 h-10 animate-bounce" />
             </div>
             <h3 className="font-serif-title text-2xl font-bold text-[#2a1e17]">
-              Donation Received 🙏
+              Donation Received
             </h3>
             <p className="text-sm text-[#2a1e17]/80">
               Thank you, <strong className="text-[#8b1e0f]">{donorName || "Devotee"}</strong>. Your contribution of <strong className="text-[#8b1e0f]">₹{amount}</strong> has been received by Shree Mahavir Sthan Nayas Samiti.

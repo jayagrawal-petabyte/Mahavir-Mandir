@@ -170,7 +170,7 @@ export default function DarshanTimings() {
         {/* Special Days Alert Banner */}
         <div className="bg-amber-100/70 border border-amber-300/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-espresso-900 text-xs sm:text-sm">
-            <span className="text-xl">🚩</span>
+            <Clock className="w-5 h-5 text-saffron-700 shrink-0" />
             <div>
               <strong className="font-bold text-saffron-800">Tuesday & Saturday Special Rush Hours:</strong>
               <span className="text-espresso-800/80 ml-1">

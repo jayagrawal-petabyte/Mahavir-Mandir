@@ -17,58 +17,30 @@ export default function Header({
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [isFirstVisit, setIsFirstVisit] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return !sessionStorage.getItem("hasSeenHeaderAnimation");
-      } catch {
-        return false;
-      }
-    }
-    return false;
-  });
-
-  const [stage, setStage] = useState<"centered" | "moving" | "settled">(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return sessionStorage.getItem("hasSeenHeaderAnimation") ? "settled" : "centered";
-      } catch {
-        return "settled";
-      }
-    }
-    return "settled";
-  });
+  const [stage, setStage] = useState<"centered" | "moving" | "settled">("centered");
 
   useEffect(() => {
-    if (isFirstVisit && stage === "centered") {
-      try {
-        sessionStorage.setItem("hasSeenHeaderAnimation", "true");
-      } catch {
-        // ignore
-      }
+    const timer1 = setTimeout(() => {
+      setStage("moving");
+    }, 900);
 
-      const timer1 = setTimeout(() => {
-        setStage("moving");
-      }, 600);
+    const timer2 = setTimeout(() => {
+      setStage("settled");
+    }, 2200);
 
-      const timer2 = setTimeout(() => {
-        setStage("settled");
-      }, 1400);
-
-      return () => {
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-      };
-    }
-  }, [isFirstVisit, stage]);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
 
   // Framer Motion Stagger Variants for Nav Items
   const navContainerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.15,
+        staggerChildren: 0.08,
+        delayChildren: 0.2,
       },
     },
   };
@@ -78,21 +50,21 @@ export default function Header({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.35, ease: "easeOut" },
+      transition: { duration: 0.45, ease: "easeOut" },
     },
   };
 
   return (
     <>
-      {/* Centered Entrance Splash Overlay (First visit in session only) */}
+      {/* Centered Entrance Splash Overlay (Plays on every page load) */}
       <AnimatePresence>
-        {stage !== "settled" && isFirstVisit && (
+        {stage !== "settled" && (
           <motion.div
             key="splash-overlay"
             initial={{ opacity: 1 }}
             animate={{ opacity: stage === "centered" ? 1 : 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={`fixed inset-0 z-50 bg-[#faf7f2] flex items-center justify-center ${
               stage === "moving" ? "pointer-events-none" : ""
             }`}
@@ -101,8 +73,8 @@ export default function Header({
               <motion.div
                 layoutId="header-logo-brand"
                 transition={{
-                  duration: 0.8,
-                  ease: [0.16, 1, 0.3, 1], // smooth ease-out, no bounce
+                  duration: 1.2,
+                  ease: [0.16, 1, 0.3, 1], // smooth ease-out, deliberate & premium
                 }}
                 className="flex items-center gap-4 scale-[1.75] sm:scale-[2.2] origin-center cursor-default select-none p-4"
               >
@@ -133,14 +105,14 @@ export default function Header({
       >
         {/* Top Disclaimer Notice Bar */}
         <motion.div
-          initial={isFirstVisit ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -8 }}
           animate={stage === "centered" ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="bg-[#8b1e0f] text-amber-100 py-1.5 px-4 sm:px-6 w-full min-h-fit overflow-hidden"
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 text-[12px] leading-snug">
             <div className="flex items-center gap-1.5 overflow-hidden truncate">
-              <span className="text-amber-300 font-bold shrink-0">⚠ Notice:</span>
+              <span className="text-amber-300 font-bold shrink-0">Notice:</span>
               <span className="truncate font-medium text-amber-100/95">
                 Beware of fake sites/pages collecting donations in our name. Official sites: mahavirmandirpatna.org · mahavirmandir.org · viraatramayanmandir.net/.org
               </span>
@@ -163,7 +135,7 @@ export default function Header({
                 href="#"
                 layoutId="header-logo-brand"
                 transition={{
-                  duration: 0.8,
+                  duration: 1.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="flex items-center gap-3 group"
@@ -192,7 +164,7 @@ export default function Header({
           {/* Navigation Links with Equal & Consistent Spacing */}
           <motion.nav
             variants={navContainerVariants}
-            initial={isFirstVisit ? "hidden" : "visible"}
+            initial="hidden"
             animate={stage === "centered" ? "hidden" : "visible"}
             className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-[#2a1e17]"
           >
@@ -218,9 +190,9 @@ export default function Header({
 
           {/* Mobile Menu Button */}
           <motion.button
-            initial={isFirstVisit ? { opacity: 0 } : { opacity: 1 }}
+            initial={{ opacity: 0 }}
             animate={stage === "centered" ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.35 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg text-[#2a1e17] hover:bg-amber-100/60"
           >
@@ -276,6 +248,7 @@ export default function Header({
     </>
   );
 }
+
 
 
 

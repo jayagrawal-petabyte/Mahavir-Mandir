@@ -76,7 +76,7 @@ export default function NaivedyamSection() {
                   </p>
                 </div>
                 <span className="w-8 h-8 rounded-full bg-saffron-100 text-saffron-700 flex items-center justify-center font-bold text-sm">
-                  🍬
+                  <ShoppingBag className="w-4 h-4 text-saffron-700" />
                 </span>
               </div>
 

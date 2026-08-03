@@ -20,7 +20,7 @@ export default function SideEdgeTabs({
         title="Watch Live Darshan Stream"
       >
         <Radio className="w-4 h-4 text-amber-300 shrink-0" />
-        <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-bold tracking-widest uppercase text-amber-100 group-hover:text-white select-none whitespace-nowrap">
+        <span className="[writing-mode:vertical-rl] text-[11px] font-bold tracking-widest uppercase text-amber-100 group-hover:text-white select-none whitespace-nowrap">
           Live Darshan
         </span>
       </button>
@@ -32,7 +32,7 @@ export default function SideEdgeTabs({
         title="Make an Online Donation"
       >
         <Heart className="w-4 h-4 text-amber-400 shrink-0 group-hover:scale-110 transition-transform" />
-        <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-bold tracking-widest uppercase text-amber-200 group-hover:text-white select-none whitespace-nowrap">
+        <span className="[writing-mode:vertical-rl] text-[11px] font-bold tracking-widest uppercase text-amber-200 group-hover:text-white select-none whitespace-nowrap">
           Online Donation
         </span>
       </button>

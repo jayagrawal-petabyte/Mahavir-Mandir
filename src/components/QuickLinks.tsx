@@ -30,7 +30,7 @@ export default function QuickLinks({ onOpenDonate, onOpenLive, onOpenNotices }: 
       desc: "Experience divine darshan of Sankat Mochan Twin Hanuman Idols from anywhere in the world. Watch live Aarti, Bhajan, and morning rituals in HD quality.",
       image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600",
       badge: "LIVE HD 24x7",
-      badgeColor: "bg-red-100 text-red-700 border-red-300 animate-pulse",
+      badgeColor: "bg-red-100 text-red-700 border-red-300",
       buttonText: "Watch Live Darshan",
       icon: Tv,
       onClick: onOpenLive,
@@ -121,7 +121,7 @@ export default function QuickLinks({ onOpenDonate, onOpenLive, onOpenNotices }: 
 
                   {/* Highlight box */}
                   <div className="bg-amber-50 rounded-xl p-3 border border-amber-200/60 mb-5 text-xs text-amber-900/90 font-medium">
-                    ✨ <span className="font-semibold">{card.highlight}</span>
+                    <span className="font-semibold">{card.highlight}</span>
                   </div>
                 </div>
 

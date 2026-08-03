@@ -93,7 +93,7 @@ export default function LiveDarshanModal({ isOpen, onClose }: LiveDarshanModalPr
             {/* Live Indicator overlay */}
             <div className="absolute top-4 left-4 flex items-center gap-2">
               <span className="bg-red-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
-                🔴 LIVE STREAM
+                LIVE STREAM
               </span>
               <span className="bg-black/60 backdrop-blur-md text-amber-300 font-semibold text-xs px-2.5 py-1 rounded-full border border-amber-400/30 flex items-center gap-1">
                 <Eye className="w-3 h-3" /> 14,820 Watching
