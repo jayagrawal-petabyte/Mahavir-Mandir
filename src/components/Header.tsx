@@ -131,20 +131,25 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
           initial={isFirstVisit ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
           animate={stage === "centered" ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-[#8b1e0f] text-white text-xs py-2 px-4"
+          className="bg-[#8b1e0f] text-white py-2.5 px-6 sm:px-8 w-full min-h-fit"
         >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div className="flex items-center gap-2 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span>Daily Schedule: Opens 5:00 AM | Morning Aarti 5:00 PM</span>
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-6 text-xs leading-normal">
+            <div className="flex items-center gap-2.5 font-medium text-white">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
+              <span className="whitespace-normal text-center sm:text-left">
+                Daily Schedule: Opens 5:00 AM | Morning Aarti 5:00 PM
+              </span>
             </div>
-            <div className="flex items-center gap-4 text-[11px] text-amber-200">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-amber-400" />
+            <div className="flex items-center gap-3 text-[11px] sm:text-xs text-amber-200 font-medium">
+              <span className="flex items-center gap-1.5 shrink-0">
+                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 Patna Junction, Bihar
               </span>
-              <span>•</span>
-              <button onClick={onOpenDonate} className="hover:underline font-bold text-white">
+              <span className="text-amber-400/60">•</span>
+              <button
+                onClick={onOpenDonate}
+                className="hover:underline font-bold text-white transition-colors text-center sm:text-left"
+              >
                 Shree Mahavir Sthan Nayas Samiti Trust
               </button>
             </div>
@@ -152,10 +157,10 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
         </motion.div>
 
         {/* Main Nav Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-3.5 flex items-center justify-between gap-6">
           
           {/* Emblem & Name */}
-          <div className="min-h-[44px] flex items-center">
+          <div className="min-h-[44px] flex items-center shrink-0">
             {stage !== "centered" ? (
               <motion.a
                 href="#"
@@ -187,29 +192,29 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
             )}
           </div>
 
-          {/* Navigation Links */}
+          {/* Navigation Links with Equal & Consistent Spacing */}
           <motion.nav
             variants={navContainerVariants}
             initial={isFirstVisit ? "hidden" : "visible"}
             animate={stage === "centered" ? "hidden" : "visible"}
-            className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-[#2a1e17]"
+            className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-[#2a1e17]"
           >
-            <motion.a variants={navItemVariants} href="#about" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#about" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               About Us
             </motion.a>
-            <motion.a variants={navItemVariants} href="#services" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Rituals & Offerings
             </motion.a>
-            <motion.a variants={navItemVariants} href="#publications" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#publications" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Research & Publications
             </motion.a>
-            <motion.a variants={navItemVariants} href="#online-services" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#online-services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Online Services
             </motion.a>
-            <motion.a variants={navItemVariants} href="#health-institutes" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#health-institutes" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Health Institutes
             </motion.a>
-            <motion.a variants={navItemVariants} href="#contact" className="hover:text-[#8b1e0f] transition-colors">
+            <motion.a variants={navItemVariants} href="#contact" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Contact Us
             </motion.a>
           </motion.nav>
@@ -219,7 +224,7 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
             initial={isFirstVisit ? { opacity: 0, scale: 0.95 } : { opacity: 1, scale: 1 }}
             animate={stage === "centered" ? { opacity: 0, scale: 0.95 } : { opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.35 }}
-            className="hidden sm:flex items-center gap-3"
+            className="hidden sm:flex items-center gap-3 shrink-0"
           >
             <button
               onClick={onOpenLive}
@@ -244,7 +249,7 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#faf7f2] border-b border-amber-900/10 px-4 py-4 space-y-3 font-semibold text-xs text-[#2a1e17] shadow-lg">
+          <div className="lg:hidden bg-[#faf7f2] border-b border-amber-900/10 px-6 py-4 space-y-3 font-semibold text-xs text-[#2a1e17] shadow-lg">
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               About Us
             </a>
@@ -281,4 +286,5 @@ export default function Header({ onOpenDonate, onOpenLive }: HeaderProps) {
     </>
   );
 }
+
 
