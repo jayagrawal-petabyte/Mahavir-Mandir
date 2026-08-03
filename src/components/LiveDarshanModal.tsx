@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Tv, Eye, Volume2, VolumeX, Sparkles, MessageSquare, Play } from "lucide-react";
+import { X, MessageSquare } from "lucide-react";
 
 interface LiveDarshanModalProps {
   isOpen: boolean;
@@ -80,37 +80,14 @@ export default function LiveDarshanModal({ isOpen, onClose }: LiveDarshanModalPr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           
           {/* Player Container */}
-          <div className="lg:col-span-8 bg-black rounded-2xl relative overflow-hidden aspect-video border border-white/10 flex items-center justify-center group">
-            
-            {/* Animated Simulated Live Video Backdrop */}
-            <img
-              src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&q=80&w=900"
-              alt="Live Darshan Stream"
-              className="w-full h-full object-cover filter brightness-95"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
-
-            {/* Live Indicator overlay */}
-            <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="bg-red-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
-                LIVE STREAM
-              </span>
-              <span className="bg-black/60 backdrop-blur-md text-amber-300 font-semibold text-xs px-2.5 py-1 rounded-full border border-amber-400/30 flex items-center gap-1">
-                <Eye className="w-3 h-3" /> 14,820 Watching
-              </span>
-            </div>
-
-            {/* Mute Control */}
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-saffron-600 transition-colors border border-white/20"
-            >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-            </button>
-
-            <div className="absolute bottom-4 left-4 text-xs font-semibold text-amber-200 bg-black/60 px-3 py-1 rounded-full backdrop-blur-md">
-              Aarti Chanting Sound: {isMuted ? "Muted" : "Playing Live Audio"}
-            </div>
+          <div className="lg:col-span-8 bg-black rounded-2xl relative overflow-hidden aspect-video border border-white/10 flex items-center justify-center shadow-2xl">
+            <iframe
+              src="https://www.youtube.com/embed/WV6IVzFiWK8?autoplay=1&rel=0&modestbranding=1"
+              title="Mahavir Mandir Patna Live Darshan Stream"
+              className="w-full h-full border-0 rounded-2xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
           </div>
 
           {/* Devotee Live Prayer Chat Box */}

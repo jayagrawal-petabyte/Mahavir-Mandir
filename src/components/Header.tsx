@@ -132,7 +132,7 @@ export default function Header({
           <div className="min-h-[44px] flex items-center shrink-0">
             {stage !== "centered" ? (
               <motion.a
-                href="#"
+                href="/"
                 layoutId="header-logo-brand"
                 transition={{
                   duration: 1.2,
@@ -168,22 +168,22 @@ export default function Header({
             animate={stage === "centered" ? "hidden" : "visible"}
             className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-[#2a1e17]"
           >
-            <motion.a variants={navItemVariants} href="#about" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/#about" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               About Us
             </motion.a>
-            <motion.a variants={navItemVariants} href="#services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/#services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Rituals & Offerings
             </motion.a>
-            <motion.a variants={navItemVariants} href="#publications" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/#publications" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Research & Publications
             </motion.a>
-            <motion.a variants={navItemVariants} href="#online-services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/#online-services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Online Services
             </motion.a>
-            <motion.a variants={navItemVariants} href="#health-institutes" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/#health-institutes" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Health Institutes
             </motion.a>
-            <motion.a variants={navItemVariants} href="#contact" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/contact" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Contact Us
             </motion.a>
           </motion.nav>
@@ -203,22 +203,22 @@ export default function Header({
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#faf7f2] border-b border-amber-900/10 px-6 py-4 space-y-3 font-semibold text-xs text-[#2a1e17] shadow-lg">
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/#about" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               About Us
             </a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/#services" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Rituals & Offerings
             </a>
-            <a href="#publications" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/#publications" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Research & Publications
             </a>
-            <a href="#online-services" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/#online-services" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Online Services
             </a>
-            <a href="#health-institutes" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/#health-institutes" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Health Institutes
             </a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Contact Us
             </a>
 

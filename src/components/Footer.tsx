@@ -37,11 +37,11 @@ export default function Footer() {
             </ul>
 
             <div className="pt-2 flex gap-4 text-xs font-bold text-amber-300">
-              <a href="#about" className="hover:underline">About Us</a>
+              <a href="/#about" className="hover:underline">About Us</a>
+              <span>•</span>
+              <a href="/contact" className="hover:underline">Contact Us</a>
               <span>•</span>
               <a href="#" className="hover:underline">Secretary's Message</a>
-              <span>•</span>
-              <a href="#" className="hover:underline">Shravan Kumar Award</a>
             </div>
           </div>
 
