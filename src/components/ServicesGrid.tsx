@@ -90,10 +90,10 @@ export default function ServicesGrid() {
               </ul>
             </div>
 
-            <div className="pt-3 border-t border-amber-900/10 text-xs font-bold text-[#8b1e0f] flex items-center gap-1 group-hover:underline">
-              <span>View Guidelines</span>
+            <a href="/rituals" className="pt-3 border-t border-amber-900/10 text-xs font-bold text-[#8b1e0f] flex items-center gap-1 group-hover:underline">
+              <span>View Full Ritual List & Rates</span>
               <span>→</span>
-            </div>
+            </a>
           </div>
         ))}
       </div>

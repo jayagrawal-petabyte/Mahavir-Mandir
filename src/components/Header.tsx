@@ -171,7 +171,7 @@ export default function Header({
             <motion.a variants={navItemVariants} href="/#about" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               About Us
             </motion.a>
-            <motion.a variants={navItemVariants} href="/#services" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
+            <motion.a variants={navItemVariants} href="/rituals" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
               Rituals & Offerings
             </motion.a>
             <motion.a variants={navItemVariants} href="/#publications" className="whitespace-nowrap hover:text-[#8b1e0f] transition-colors py-1">
@@ -196,7 +196,7 @@ export default function Header({
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg text-[#2a1e17] hover:bg-amber-100/60"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-[#2a1e17]" />}
           </motion.button>
         </div>
 
@@ -206,7 +206,7 @@ export default function Header({
             <a href="/#about" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               About Us
             </a>
-            <a href="/#services" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
+            <a href="/rituals" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
               Rituals & Offerings
             </a>
             <a href="/#publications" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-[#8b1e0f]">
