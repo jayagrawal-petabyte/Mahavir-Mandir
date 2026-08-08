@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
@@ -76,7 +77,7 @@ export default function Footer() {
             </ul>
 
             <div className="pt-3 border-t border-amber-900/40 text-[11px] text-amber-200/60 flex flex-wrap gap-3">
-              <a href="#" className="hover:underline">Terms & Conditions</a>
+              <Link href="/terms" className="hover:underline">Terms & Conditions</Link>
               <span>•</span>
               <a href="#" className="hover:underline">Privacy Policy</a>
               <span>•</span>
